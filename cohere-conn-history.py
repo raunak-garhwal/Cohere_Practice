@@ -51,19 +51,19 @@ class Chatbot:
                     cited_documents = event.response.documents
 
             # Display citations and source documents
-            # if citations:
-            #   print("\n\nCITATIONS:")
-            #   for citation in citations:
-            #     print(citation)
+            if citations:
+              print("\n\nCITATIONS:")
+              for citation in citations:
+                print(citation)
 
-            #   print("\nDOCUMENTS:")
-            #   for document in cited_documents:
-            #     print({'id': document['id'],
-            #           'snippet': document['snippet'][:400] + '...',
-            #           'title': document['title'],
-            #           'url': document['url']})
+              print("\nDOCUMENTS:")
+              for document in cited_documents:
+                print({'id': document['id'],
+                      'snippet': document['snippet'][:400] + '...',
+                      'title': document['title'],
+                      'url': document['url']})
 
-            # print(f"\n{'-'*100}\n")
+            print(f"\n{'-'*100}\n")
 
 # Define the connector
 connectors = ["web-search"]
