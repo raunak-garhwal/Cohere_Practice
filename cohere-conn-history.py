@@ -37,33 +37,33 @@ class Chatbot:
             )
 
             # Print the chatbot response, citations and documents
-            print("\nChatbot: ")
-            citations = []
-            cited_documents = []
+            print("\nChatbot: ", end="")
+            # citations = []
+            # cited_documents = []
 
-            # Display response
+            # # Display response
             for event in response:
                 if event.event_type == "text-generation":
                     print(event.text, end="")
-                elif event.event_type == "citation-generation":
-                    citations.extend(event.citations)
-                elif event.event_type == "stream-end":
-                    cited_documents = event.response.documents
+            #     elif event.event_type == "citation-generation":
+            #         citations.extend(event.citations)
+            #     elif event.event_type == "stream-end":
+            #         cited_documents = event.response.documents
 
-            # Display citations and source documents
-            if citations:
-              print("\n\nCITATIONS:")
-              for citation in citations:
-                print(citation)
+            # # Display citations and source documents
+            # if citations:
+            #   print("\n\nCITATIONS:")
+            #   for citation in citations:
+            #     print(citation)
 
-              print("\nDOCUMENTS:")
-              for document in cited_documents:
-                print({'id': document['id'],
-                      'snippet': document['snippet'][:400] + '...',
-                      'title': document['title'],
-                      'url': document['url']})
+            #   print("\nDOCUMENTS:")
+            #   for document in cited_documents:
+            #     print({'id': document['id'],
+            #           'snippet': document['snippet'][:400] + '...',
+            #           'title': document['title'],
+            #           'url': document['url']})
 
-            print(f"\n{'-'*100}\n")
+            # print(f"\n{'-'*100}\n")
 
 # Define the connector
 connectors = ["web-search"]
