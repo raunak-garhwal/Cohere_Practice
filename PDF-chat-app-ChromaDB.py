@@ -4,7 +4,7 @@ import chromadb
 from chromadb.config import Settings
 
 # ========== CONFIG ==========
-PDF_PATH = "/content/Demo1.pdf"
+PDF_PATH = "Demo.pdf"
 COHERE_API_KEY = "B0n3BcGthprXNg5s4z6BmHdsD2hnH1iLcb5eeWnp"
 EMBED_MODEL = "embed-v4.0"
 GEN_MODEL = "command-r-plus-08-2024"
@@ -12,7 +12,7 @@ CHUNK_SIZE = 500
 PERSIST_DIR = "./chroma_store"  # must remain constant
 
 # Use a single Chroma client globally with consistent settings
-chroma_client = chromadb.Client(Settings(persist_directory=PERSIST_DIR, anonymized_telemetry=False))
+chroma_client = chromadb.Client(Settings(persist_directory=PERSIST_DIR))
 
 # ========== STEP 1: Extract Text from PDF ==========
 def extract_text_from_pdf(path):
@@ -84,7 +84,7 @@ def main():
 
         # Step 5: Generate and Show Answer
         answer = generate_answer(co, prompt)
-        print("\n📘 Answer:", answer)
+        print("\n Answer:", answer)
 
 if __name__ == "__main__":
     main()
